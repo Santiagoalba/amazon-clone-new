@@ -1,11 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import Product from "./Product";
 
 function Home() {
   return (
     <Container>
       <Banner></Banner>
-      <Content></Content>
+      <Content>
+        <Product />
+        <Product />
+        <Product />
+      </Content>
     </Container>
   );
 }
@@ -28,4 +33,6 @@ const Content = styled.div`
   padding-left: 10px;
   padding-right: 10px;
   margin-top: -350px;
+  display: flex;
+  max-width: inherit;
 `;

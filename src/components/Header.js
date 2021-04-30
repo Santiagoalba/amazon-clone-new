@@ -10,7 +10,7 @@ function header() {
     <Container>
       <Link to="/">
         <HeaderLogo>
-          <img src={"https://i.imgur.com/7I9Was5.png"} />
+          <img alt="" src={"https://i.imgur.com/7I9Was5.png"} />
         </HeaderLogo>
       </Link>
       <HeaderOptionAdress>
