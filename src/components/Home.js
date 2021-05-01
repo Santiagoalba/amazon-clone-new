@@ -1,37 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import Product from "./Product";
 import { db } from "../firebase";
 
 function Home() {
-  const [products, setProducts] = useState([]);
 
-  const getProducts = () => {
-    db.collection("products").onSnapshot((snapshot) => {
-      let temProducts = [];
-
-      temProducts = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        product: doc.data(),
-      }));
-      setProducts(temProducts);
-    });
-  };
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
-    console.log("Call products");
-    getProducts();
-  }, []);
+    db.collection('products').onSnapshot((snapshot) =>{
+      let tempProducts = [];
+      tempProducts = snapshot.docs.map((product)=>product.data());
+      setProducts(tempProducts);
+    })
+  }, [])
 
-  console.log(products);
+  console.log(products)
 
   return (
     <Container>
       <Banner></Banner>
       <Content>
-        <Product />
-        <Product />
-        <Product />
+        {products.map((prod)=>{
+          <Product 
+            name={prod.name} 
+            price={prod.price} 
+            image={prod.image} 
+            rating={prod.rating}
+          />
+        })}
       </Content>
     </Container>
   );

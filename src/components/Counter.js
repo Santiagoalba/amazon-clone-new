@@ -16,9 +16,13 @@ function Counter() {
   }
 
   useEffect(() => {
-    fetch("http://jsonplaceholder.typicode.com/posts")
+    fetch(`http://jsonplaceholder.typicode.com/${resourceType}`)
       .then((response) => response.json())
-      .then((data) => setItems(data));
+      .then((data) => {
+        console.log(data);
+        setItems(data)
+      });
+      
   }, [resourceType]);
 
   return (

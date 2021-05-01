@@ -1,14 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-function Product() {
+function Product(props) {
+
+  console.log(props)
+
   return (
     <Container>
-      <Title>Producto</Title>
-      <Price>$1799</Price>
+      <Title>{props.name}</Title>
+      <Price>{props.price}</Price>
       <Rating>⭐⭐⭐⭐⭐</Rating>
       <Image
         alt=""
-        src="https://images-na.ssl-images-amazon.com/images/I/81FH2j7EnJL._AC_SX342_.jpg"
+        src={props.image}
       />
       <AddToCartButton>Button</AddToCartButton>
     </Container>
