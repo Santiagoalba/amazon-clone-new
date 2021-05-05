@@ -14,8 +14,6 @@ function Home() {
     });
   }, []);
 
-  console.log(products);
-
   return (
     <Container>
       <Banner></Banner>
@@ -26,6 +24,7 @@ function Home() {
             price={prod.price}
             image={prod.image}
             rating={prod.rating}
+            id={prod.id}
           />
         ))}
       </Content>
