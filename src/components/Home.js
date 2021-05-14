@@ -9,7 +9,10 @@ function Home() {
   useEffect(() => {
     db.collection("products").onSnapshot((snapshot) => {
       let tempProducts = [];
-      tempProducts = snapshot.docs.map((product) => product.data());
+      tempProducts = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        product: doc.data(),
+      }));
       setProducts(tempProducts);
     });
   }, []);
@@ -20,10 +23,10 @@ function Home() {
       <Content>
         {products.map((prod) => (
           <Product
-            name={prod.name}
-            price={prod.price}
-            image={prod.image}
-            rating={prod.rating}
+            name={prod.product.name}
+            price={prod.product.price}
+            image={prod.product.image}
+            rating={prod.product.rating}
             id={prod.id}
           />
         ))}

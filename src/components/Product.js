@@ -9,7 +9,7 @@ function Product({ price, name, rating, image, id }) {
     cartItem.get().then((doc) => {
       if (doc.exists) {
         console.log(doc.data());
-        doc.update({
+        cartItem.update({
           quantity: doc.data().quantity + 1,
         });
       } else {
